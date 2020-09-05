@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#btn {
+  background-color: #15a3fa;
+  border: none;
+  color: black;
+  border: 2px solid #15a3fa;
+  padding: 10px 15px;
+  border-radius: 5px;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+body {
+  background-color: black;
+  color: aliceblue;
+  width: 80%;
+  margin: auto;
+}

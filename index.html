@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Lab 4</title>
+  </head>
+  <body>
+    <br />
+    <br />
+    <button id="btn">Click Me</button>
+    <br />
+    <br />
+    <h1>Github Users</h1>
+    <ul id="items"></ul>
+    <script>
+      document.getElementById("btn").addEventListener("click", showData);
+      function showData() {
+        var list = document.querySelector("#items");
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://api.github.com/users", true);
+
+        request.onload = function () {
+          var data = JSON.parse(request.responseText);
+          data.forEach(function (item) {
+            var out = [
+              "<li>",
+              '<img src="' + item.avatar_url + '" width="200px" />',
+              "<br/>",
+              "ID: ",
+              item.id,
+              "<br/>",
+              "Login: ",
+              item.login,
+              "<br/>",
+              "Reponse: ",
+              '<a href="' + item.repos_url + '">',
+              item.repos_url,
+              "</a>",
+              "<br/>",
+              "<br/>",
+              "</li>",
+            ];
+
+            list.innerHTML += out.join("");
+          });
+        };
+
+        request.send();
+      }
+    </script>
+  </body>
+</html>
